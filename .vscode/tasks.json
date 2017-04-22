@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/FileMover.csproj"
+                "${workspaceRoot}/app/app.csproj"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
