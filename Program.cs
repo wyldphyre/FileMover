@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace FileMover
 {
@@ -7,6 +8,12 @@ namespace FileMover
     static void Main(string[] args)
     {
       Console.WriteLine("Hello World!");
+
+      if (args.Any())
+      {
+        var filename = args.First();
+        Console.WriteLine(filename);
+      }
     }
   }
 }
