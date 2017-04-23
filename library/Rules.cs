@@ -8,6 +8,7 @@ namespace library
     {
       this.TargetFolder = string.Empty;
     }
+
     public Rule(FileProperty Property, PropertyComparisonMethod ComparisonMethod, string ComparisonArgument, string TargetFolder)
     {
       this.Property = Property;
@@ -15,10 +16,11 @@ namespace library
       this.ComparisonArgument = ComparisonArgument;
       this.TargetFolder = TargetFolder;
     }
-    public FileProperty Property { get; set; }
-    public PropertyComparisonMethod ComparisonMethod { get; set; }
-    public string ComparisonArgument { get; set; }
-    public string TargetFolder { get; set; }
+
+    public readonly FileProperty Property;
+    public readonly PropertyComparisonMethod ComparisonMethod;
+    public readonly string ComparisonArgument;
+    public readonly string TargetFolder;
   }
 
   public enum FileProperty
