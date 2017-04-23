@@ -16,11 +16,11 @@ namespace test_library
     [Fact]
     public void TestCreationOfPopulatedRule()
     {
-      TestNewPopulatedRule(FileProperty.Name, PropertyComparisonMethod.EndsWith, "Root", "boo");
-      TestNewPopulatedRule(FileProperty.Extension, PropertyComparisonMethod.Matches, "fred", "foo");
+      TestNewPopulatedRule(FileProperty.Name, PropertyComparisonMethod.EndsWith, "boo", "Root");
+      TestNewPopulatedRule(FileProperty.Extension, PropertyComparisonMethod.Matches, "foo", "Root/sub");
     }
 
-    private static Rule TestNewPopulatedRule(FileProperty Property, PropertyComparisonMethod ComparisonMethod, string TargetFolder, string Argument)
+    private static Rule TestNewPopulatedRule(FileProperty Property, PropertyComparisonMethod ComparisonMethod, string Argument, string TargetFolder)
     {
       var Rule = new Rule(Property, ComparisonMethod, Argument, TargetFolder);
       Assert.True(Rule.Property == Property, $"{nameof(Rule.Property)} == {Property}");
