@@ -24,39 +24,10 @@ namespace test_library
     {
       var Rule = new Rule(Property, ComparisonMethod, Argument, TargetFolder);
       Assert.True(Rule.Property == Property, $"{nameof(Rule.Property)} == {Property}");
-      Assert.True(Rule.ComparisonMethod == ComparisonMethod, $"{nameof(Rule.ComparisonMethod)} == {ComparisonMethod}");
-      Assert.True(Rule.ComparisonArgument == Argument, $"{nameof(Rule.ComparisonArgument)} == {nameof(Argument)}");
+      Assert.True(Rule.ComparisonMethod == ComparisonMethod, $"{nameof(Rule.ComparisonMethod)} == '{ComparisonMethod}'");
+      Assert.True(Rule.ComparisonArgument == Argument, $"{nameof(Rule.ComparisonArgument)} == '{nameof(Argument)}'");
       Assert.True(Rule.TargetFolder != string.Empty, $"{nameof(Rule.TargetFolder)} != string.Empty");
       return Rule;
-    }
-  }
-
-  public class RuleParserTests
-  {
-    // [Fact]
-    // public void TestNewRuleParser()
-    // {
-    //   var RuleParser = new RuleParser();
-    // }
-    
-    [Fact]
-    public void TestParsingLineToNonFileBasedRule()
-    {
-      Assert.Throws(typeof(InvalidRuleException), () => new RuleParser().Parse("Folder.Name.StartsWith(\"[Test]\") -> /Path/GoesHere"));
-    }
-
-    [Fact]
-    public void TestParsingLineToRule()
-    {
-      var RuleParser = new RuleParser();
-
-      Assert.Throws(typeof(InvalidRuleException), () => RuleParser.Parse("File.Name.StartsWith(\"[Test]\") /Path/GoesHere"));
-      
-      var Rule = RuleParser.Parse("File.Extension.StartsWith(\"[Test]\") -> /Path/GoesHere");
-      Assert.True(Rule != null, "Rule != null");
-      Assert.True(Rule.Property == FileProperty.Extension, $"{nameof(Rule.Property)} == {nameof(FileProperty.Extension)}");
-      Assert.True(Rule.ComparisonMethod == PropertyComparisonMethod.StartsWith, $"{nameof(Rule.ComparisonMethod)} == {nameof(PropertyComparisonMethod.StartsWith)}");
-      Assert.True(Rule.ComparisonArgument == "[Test]", $"{nameof(Rule.ComparisonArgument)} == [Test]");
     }
   }
 }
